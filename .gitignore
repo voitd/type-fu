@@ -18,6 +18,13 @@
 # misc
 .DS_Store
 *.pem
+*.iml
+.idea/
+*.log
+dist
+coverage
+.vscode
+tags
 
 # debug
 npm-debug.log*
