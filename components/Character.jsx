@@ -1,25 +1,43 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const Character = React.memo(
-  ({ chr, id, chrsTyped }) => {
+  ({ chr, id, typedChr }) => {
+    const useStyles = makeStyles({
+      lyric: {
+        display: 'inline-block',
+        whiteSpace: 'pre',
+      }
+    });
+
     const classes = useStyles();
-    let CharTypography;
 
-    if (id == chrsTyped.length) {
-      CharTypography = NextCharTypography;
-    } else if (id >= chrsTyped.length) {
-      CharTypography = Typography;
-    } else if (chrsTyped[id] === chr) {
-      CharTypography = CorrectTextTypography;
-    } else {
-      CharTypography = IncorrectTextTypography;
-    }
+    // let Typography;
 
+    // const NextChar = () => <div className={classes.lyric} color={'textSecondary'}>{chr}</div>;
+    // const CorrectChar = () => <div className={classes.lyric} color={'textSecondary'}>{chr}</div>;
+    // const IncorrectChar = () => <div className={classes.lyric} color={'textSecondary'}>{chr}</div>;
+
+    // if (id == typedChr.length) {
+    //   Typography = NextChar;
+    // } else if (id >= typedChr.length) {
+    //   Typography = Typography;
+    // } else if (typedChr[id] === chr) {
+    //   Typography = CorrectChar;
+    // } else {
+    //   Typography = IncorrectChar;
+    // }
+
+    // return <Typography className={classes.lyric} color={'textSecondary'}>{chr}</Typography>;
+    
     return (
-      <CharTypography className={classes.lyric} color={'textSecondary'}>
+      <Typography
+        className={classes.lyric}
+        color={'textSecondary'}
+      >
         {chr}
-      </CharTypography>
+      </Typography>
     );
   },
   (props, nextProps) => {
